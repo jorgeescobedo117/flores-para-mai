@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unas flores especiales para Mai 💛✨</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    overflow: hidden;
+    background: radial-gradient(circle at 50% 30%, #fffbf0 0%, #ffe999 50%, #f3be48 100%);
+    font-family: 'Georgia', serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4a3300;
+  }
+
+  .scene {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  /* Brillo de fondo */
+  .sun-glow {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,223,118,0.3) 50%, rgba(255,255,255,0) 80%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .message {
+    position: absolute;
+    z-index: 20;
+    top: 4%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 90%;
+    max-width: 700px;
+    animation: appear 2s ease forwards;
+  }
+
+  .message h1 {
+    margin: 0;
+    font-size: clamp(32px, 5vw, 56px);
+    color: #6b4000;
+    text-shadow: 0 2px 15px rgba(255, 255, 255, 0.9);
+    letter-spacing: 1px;
+  }
+
+  .message p {
+    margin-top: 12px;
+    font-size: clamp(16px, 2.5vw, 22px);
+    color: #7a5200;
+    font-style: italic;
+    background: rgba(255, 255, 255, 0.4);
+    padding: 8px 18px;
+    border-radius: 20px;
+    display: inline-block;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  }
+
+  /* REPRODUCTOR YOUTUBE EN PANTALLA CON MINIATURA */
+  .youtube-player-card {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.92);
+    border: 2px solid #ffd438;
+    border-radius: 12px;
+    padding: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    backdrop-filter: blur(5px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 210px;
+    max-width: calc(100vw - 24px);
+  }
+
+  .youtube-player-card span {
+    font-size: 12px;
+    font-weight: bold;
+    color: #6b4000;
+    margin-bottom: 6px;
+    text-align: center;
+  }
+
+  .youtube-iframe-container {
+    width: 190px;
+    height: 110px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+
+  .youtube-iframe-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+  }
+
+  .youtube-direct-link {
+    display: block;
+    width: 100%;
+    margin-top: 7px;
+    padding: 7px 8px;
+    border-radius: 8px;
+    background: #fff3b0;
+    color: #6b4000;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .youtube-direct-link:active {
+    transform: scale(0.98);
+  }
+
+  @media (max-width: 600px) {
+    .youtube-player-card {
+      top: max(10px, env(safe-area-inset-top));
+      right: 10px;
+      width: 170px;
+      padding: 6px;
+    }
+
+    .youtube-player-card span {
+      font-size: 10px;
+      margin-bottom: 4px;
+    }
+
+    .youtube-iframe-container {
+      width: 154px;
+      height: 90px;
+    }
+
+    .youtube-direct-link {
+      font-size: 11px;
+      padding: 8px 5px;
+      margin-top: 5px;
+    }
+  }
+
+  /* CAMPO PRINCIPAL */
+  .field {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 65%;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    padding: 0 8vw;
+    z-index: 10;
+  }
+
+  .stem-container {
+    position: relative;
+    height: 100%;
+    width: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  .stem {
+    position: absolute;
+    bottom: 0;
+    width: 8px;
+    height: var(--h);
+    background: linear-gradient(to right, #3d6e28, #609838, #2d541d);
+    border-radius: 10px;
+    transform-origin: bottom;
+    animation: grow 1.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    animation-delay: var(--delay);
+    transform: scaleY(0);
+  }
+
+  .flower {
+    position: absolute;
+    bottom: calc(var(--h) - 20px);
+    width: 110px;
+    height: 110px;
+    transform: scale(0);
+    animation: bloom 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    animation-delay: calc(var(--delay) + 1.2s);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .flower:hover {
+    transform: scale(1.15) !important;
+  }
+
+  /* pétalos */
+  .petal {
+    position: absolute;
+    width: 42px;
+    height: 60px;
+    left: 34px;
+    top: 25px;
+    background: linear-gradient(to top, #ffcb05, #fff5aa);
+    border-radius: 50% 50% 45% 45%;
+    box-shadow: 0 2px 10px rgba(180, 120, 0, 0.2);
+    transform-origin: 21px 30px;
+  }
+
+  .p1 { transform: rotate(0deg) translateY(-28px); }
+  .p2 { transform: rotate(45deg) translateY(-28px); }
+  .p3 { transform: rotate(90deg) translateY(-28px); }
+  .p4 { transform: rotate(135deg) translateY(-28px); }
+  .p5 { transform: rotate(180deg) translateY(-28px); }
+  .p6 { transform: rotate(225deg) translateY(-28px); }
+  .p7 { transform: rotate(270deg) translateY(-28px); }
+  .p8 { transform: rotate(315deg) translateY(-28px); }
+
+  .center {
+    position: absolute;
+    left: 35px;
+    top: 35px;
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(circle, #a05a00 0%, #683a00 100%);
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 4px #d48b00, 0 0 10px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  .leaf {
+    position: absolute;
+    width: 50px;
+    height: 24px;
+    background: linear-gradient(to right, #4c8230, #7bb848);
+    border-radius: 100% 0 100% 0;
+  }
+
+  .leaf.left {
+    left: -42px;
+    bottom: 35%;
+    transform: rotate(25deg);
+  }
+
+  .leaf.right {
+    right: -42px;
+    bottom: 50%;
+    transform: scaleX(-1) rotate(25deg);
+  }
+
+  /* FLORECITAS SECUNDARIAS DE FONDO */
+  .bg-field {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 45%;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .mini-stem {
+    position: absolute;
+    bottom: 0;
+    width: 4px;
+    height: var(--h);
+    left: var(--x);
+    background: #507d32;
+    transform-origin: bottom;
+    animation: grow 1.5s ease-out forwards;
+    animation-delay: var(--delay);
+    transform: scaleY(0);
+    opacity: 0.85;
+  }
+
+  .mini-flower {
+    position: absolute;
+    bottom: calc(var(--h) - 2px);
+    left: 50%;
+    width: var(--s);
+    height: var(--s);
+    transform: translateX(-50%) scale(0);
+    animation: bloom 1s ease-out forwards;
+    animation-delay: calc(var(--delay) + 1s);
+  }
+
+  .mini-petal {
+    position: absolute;
+    width: 40%;
+    height: 60%;
+    left: 30%;
+    top: 20%;
+    background: var(--color, #ffe259);
+    border-radius: 50%;
+    transform-origin: 50% 50%;
+  }
+
+  .mini-center {
+    position: absolute;
+    left: 30%;
+    top: 30%;
+    width: 40%;
+    height: 40%;
+    background: #8c5700;
+    border-radius: 50%;
+  }
+
+  /* Tarjetas de mensajes */
+  .card-note {
+    position: absolute;
+    bottom: calc(var(--h) + 105px);
+    width: 220px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 14px 16px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(110, 75, 0, 0.2);
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.4;
+    color: #5c3b00;
+    border: 2px solid #ffd438;
+    opacity: 0;
+    transform: translateY(15px) scale(0.9);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    pointer-events: none;
+    z-index: 30;
+  }
+
+  .card-note strong {
+    display: block;
+    color: #9e6400;
+    margin-bottom: 4px;
+    font-size: 15px;
+  }
+
+  .stem-container:hover .card-note {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  /* Luciórnagas flotantes */
+  .sparkle {
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #ffea79, 0 0 20px #ffea79;
+    animation: float 6s linear infinite;
+    opacity: 0;
+  }
+
+  @keyframes grow {
+    to { transform: scaleY(1); }
+  }
+
+  @keyframes bloom {
+    to { transform: scale(1); }
+  }
+
+  @keyframes appear {
+    from { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+    to { opacity: 1; transform: translateX(-50%) translateY(0); }
+  }
+
+  @keyframes float {
+    0% { opacity: 0; transform: translateY(0) scale(0.5); }
+    50% { opacity: 0.9; }
+    100% { opacity: 0; transform: translateY(-180px) scale(1.2); }
+  }
+
+  .grass {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 12%;
+    background: linear-gradient(to top, #3b6623, #5c9e38);
+    border-radius: 50% 50% 0 0 / 20% 20% 0 0;
+    z-index: 5;
+  }
+</style>
+</head>
+
+<body>
+<div class="scene">
+  <div class="sun-glow"></div>
+
+  <div class="message">
+    <h1>Para ti, Mai 💛</h1>
+    <p>Cada una de estas 4 flores guarda algo muy especial... (Tócalas o pasa el mouse) ✨</p>
+  </div>
+
+  <!-- REPRODUCTOR YOUTUBE: FLORES AMARILLAS - FLORICIENTA -->
+  <div class="youtube-player-card">
+    <span>🌻 Flores Amarillas - Floricienta:</span>
+    <div class="youtube-iframe-container">
+      <iframe
+        src="https://www.youtube.com/embed/rP3LTo13F0k?playsinline=1&rel=0"
+        title="Flores Amarillas - Floricienta"
+        allow="encrypted-media; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <a
+      class="youtube-direct-link"
+      href="https://www.youtube.com/watch?v=rP3LTo13F0k"
+      target="_blank"
+      rel="noopener noreferrer">
+      ▶️ Abrir canción en YouTube
+    </a>
+  </div>
+
+  <!-- Luces decorativas -->
+  <div class="sparkle" style="width:8px; height:8px; left: 12%; bottom: 20%; animation-delay: 0.5s;"></div>
+  <div class="sparkle" style="width:10px; height:10px; left: 38%; bottom: 15%; animation-delay: 2.2s;"></div>
+  <div class="sparkle" style="width:6px; height:6px; left: 65%; bottom: 25%; animation-delay: 1.1s;"></div>
+  <div class="sparkle" style="width:9px; height:9px; left: 85%; bottom: 18%; animation-delay: 3.5s;"></div>
+
+  <!-- CAMPO SECUNDARIO LLENO DE FLORECITAS -->
+  <div class="bg-field" id="bgField"></div>
+
+  <!-- CAMPO PRINCIPAL (4 FLORES INTERACTIVAS DE MAI) -->
+  <div class="field">
+    <!-- FLOR 1 -->
+    <div class="stem-container">
+      <div class="card-note" style="--h: 240px;">
+        <strong>🌸 Flor 1: Tu Luz</strong>
+         Tu presencia siempre logra cambiarlo todo para mejor :3 Siempre tu misma :D.
+      </div>
+      <div class="stem" style="--h: 240px; --delay: 0.2s;">
+        <div class="leaf left"></div>
+        <div class="leaf right"></div>
+        <div class="flower" style="--h: 240px; --delay: 0.2s;">
+          <div class="petal p1"></div><div class="petal p2"></div><div class="petal p3"></div><div class="petal p4"></div>
+          <div class="petal p5"></div><div class="petal p6"></div><div class="petal p7"></div><div class="petal p8"></div>
+          <div class="center">1</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FLOR 2 -->
+    <div class="stem-container">
+      <div class="card-note" style="--h: 280px;">
+        <strong>🌻 Flor 2: Tus ojitoosssss</strong>
+         Tienes unos ojitososss bien hermosoossss me los das ? jskjsks:D.
+      </div>
+      <div class="stem" style="--h: 280px; --delay: 0.5s;">
+        <div class="leaf left"></div>
+        <div class="leaf right"></div>
+        <div class="flower" style="--h: 280px; --delay: 0.5s;">
+          <div class="petal p1"></div><div class="petal p2"></div><div class="petal p3"></div><div class="petal p4"></div>
+          <div class="petal p5"></div><div class="petal p6"></div><div class="petal p7"></div><div class="petal p8"></div>
+          <div class="center">2</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FLOR 3 -->
+    <div class="stem-container">
+      <div class="card-note" style="--h: 260px;">
+        <strong>🌷 Flor 3: niñaaa </strong>
+        Gracias por estar, por escucharme y por hacerme sentir tan bien siempre. Ocupas un lugar gigante en mi corazón.
+      </div>
+      <div class="stem" style="--h: 260px; --delay: 0.8s;">
+        <div class="leaf left"></div>
+        <div class="leaf right"></div>
+        <div class="flower" style="--h: 260px; --delay: 0.8s;">
+          <div class="petal p1"></div><div class="petal p2"></div><div class="petal p3"></div><div class="petal p4"></div>
+          <div class="petal p5"></div><div class="petal p6"></div><div class="petal p7"></div><div class="petal p8"></div>
+          <div class="center">3</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FLOR 4 -->
+    <div class="stem-container">
+      <div class="card-note" style="--h: 220px;">
+        <strong>✨ Flor 4: Lo Única Que Eres</strong>
+        Nunca olvides lo increíble y valiosa que eres , Mai. ¡Eres súper importante y te quiero muchísimo!  Nunca cambiesss valesss millll :D💛
+      </div>
+      <div class="stem" style="--h: 220px; --delay: 1.1s;">
+        <div class="leaf left"></div>
+        <div class="leaf right"></div>
+        <div class="flower" style="--h: 220px; --delay: 1.1s;">
+          <div class="petal p1"></div><div class="petal p2"></div><div class="petal p3"></div><div class="petal p4"></div>
+          <div class="petal p5"></div><div class="petal p6"></div><div class="petal p7"></div><div class="petal p8"></div>
+          <div class="center">4</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="grass"></div>
+</div>
+
+<script>
+  // Generar dinámicamente un campo tupido de florecitas secundarias alrededor
+  const bgField = document.getElementById('bgField');
+  const colors = ['#ffe159', '#fff8b5', '#ffd119', '#ffffff', '#ffeb8a'];
+  
+  const bgFlowersData = [
+    [3, 90, 30, 0.1], [6, 140, 38, 0.4], [10, 70, 25, 0.2], [14, 180, 42, 0.6],
+    [18, 110, 32, 0.3], [22, 60, 22, 0.5], [26, 150, 40, 0.2], [30, 85, 28, 0.7],
+    [34, 130, 35, 0.1], [38, 75, 26, 0.4], [42, 160, 44, 0.3], [46, 100, 30, 0.8],
+    [50, 65, 24, 0.2], [54, 140, 38, 0.5], [58, 90, 28, 0.1], [62, 170, 45, 0.6],
+    [66, 80, 26, 0.3], [70, 125, 34, 0.7], [74, 60, 22, 0.2], [78, 150, 40, 0.4],
+    [82, 95, 30, 0.8], [86, 135, 36, 0.1], [90, 70, 25, 0.5], [94, 160, 42, 0.3], [97, 85, 28, 0.6]
+  ];
+
+  bgFlowersData.forEach(([x, h, s, delay]) => {
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    const stem = document.createElement('div');
+    stem.className = 'mini-stem';
+    stem.style.setProperty('--x', `${x}%`);
+    stem.style.setProperty('--h', `${h}px`);
+    stem.style.setProperty('--delay', `${delay}s`);
+
+    let petalsHTML = '';
+    for (let i = 0; i < 6; i++) {
+      petalsHTML += `<div class="mini-petal" style="transform: rotate(${i * 60}deg) translateY(-35%); --color: ${color}"></div>`;
+    }
+
+    stem.innerHTML = `
+      <div class="mini-flower" style="--h: ${h}px; --s: ${s}px; --delay: ${delay}s;">
+        ${petalsHTML}
+        <div class="mini-center"></div>
+      </div>
+    `;
+
+    bgField.appendChild(stem);
+  });
+</script>
+</body>
+</html>
