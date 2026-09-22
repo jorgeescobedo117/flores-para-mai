@@ -1,442 +1,942 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Unas flores especiales para Mai 💛✨</title>
-<style>
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    min-height: 100vh;
-    overflow: hidden;
-    background: radial-gradient(circle at 50% 30%, #fffbf0 0%, #ffe999 50%, #f3be48 100%);
-    font-family: 'Georgia', serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #4a3300;
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Unas flores muy especiales para Mai 💛✨</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,600;1,400&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  .scene {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-  }
-
-  /* Brillo de fondo */
-  .sun-glow {
-    position: absolute;
-    top: -50px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,223,118,0.3) 50%, rgba(255,255,255,0) 80%);
-    border-radius: 50%;
-    pointer-events: none;
-  }
-
-  .message {
-    position: absolute;
-    z-index: 20;
-    top: 4%;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    width: 90%;
-    max-width: 700px;
-    animation: appear 2s ease forwards;
-  }
-
-  .message h1 {
-    margin: 0;
-    font-size: clamp(32px, 5vw, 56px);
-    color: #6b4000;
-    text-shadow: 0 2px 15px rgba(255, 255, 255, 0.9);
-    letter-spacing: 1px;
-  }
-
-  .message p {
-    margin-top: 12px;
-    font-size: clamp(16px, 2.5vw, 22px);
-    color: #7a5200;
-    font-style: italic;
-    background: rgba(255, 255, 255, 0.4);
-    padding: 8px 18px;
-    border-radius: 20px;
-    display: inline-block;
-    backdrop-filter: blur(4px);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-  }
-
-  /* REPRODUCTOR YOUTUBE EN PANTALLA CON MINIATURA */
-  .youtube-player-card {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 100;
-    background: rgba(255, 255, 255, 0.92);
-    border: 2px solid #ffd438;
-    border-radius: 12px;
-    padding: 8px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-    backdrop-filter: blur(5px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 210px;
-    max-width: calc(100vw - 24px);
-  }
-
-  .youtube-player-card span {
-    font-size: 12px;
-    font-weight: bold;
-    color: #6b4000;
-    margin-bottom: 6px;
-    text-align: center;
-  }
-
-  .youtube-iframe-container {
-    width: 190px;
-    height: 110px;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-  }
-
-  .youtube-iframe-container iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-    display: block;
-  }
-
-  .youtube-direct-link {
-    display: block;
-    width: 100%;
-    margin-top: 7px;
-    padding: 7px 8px;
-    border-radius: 8px;
-    background: #fff3b0;
-    color: #6b4000;
-    text-decoration: none;
-    font-size: 12px;
-    font-weight: bold;
-    text-align: center;
-    -webkit-tap-highlight-color: transparent;
-  }
-
-  .youtube-direct-link:active {
-    transform: scale(0.98);
-  }
-
-  @media (max-width: 600px) {
-    .youtube-player-card {
-      top: max(10px, env(safe-area-inset-top));
-      right: 10px;
-      width: 170px;
-      padding: 6px;
+  <style>
+    :root {
+      --primary-gold: #ffcb05;
+      --glow-gold: #ffe600;
+      --deep-gold: #d48b00;
+      --stem-green: #4a8528;
+      --bg-top: #fffef0;
+      --bg-mid: #fde896;
+      --bg-bot: #e59d1a;
+      --text-main: #4a2c00;
     }
 
-    .youtube-player-card span {
-      font-size: 10px;
-      margin-bottom: 4px;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
     }
 
-    .youtube-iframe-container {
-      width: 154px;
-      height: 90px;
+    body {
+      min-height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at 50% 25%, var(--bg-top) 0%, var(--bg-mid) 55%, var(--bg-bot) 100%);
+      color: var(--text-main);
+      position: relative;
     }
 
-    .youtube-direct-link {
-      font-size: 11px;
-      padding: 8px 5px;
-      margin-top: 5px;
+    canvas#petalCanvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 12;
     }
-  }
 
-  /* CAMPO PRINCIPAL */
-  .field {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 65%;
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-end;
-    padding: 0 8vw;
-    z-index: 10;
-  }
+    .sunburst {
+      position: absolute;
+      top: -10vw;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100vw;
+      height: 100vw;
+      max-width: 900px;
+      max-height: 900px;
+      background: radial-gradient(circle, rgba(255, 248, 200, 0.85) 0%, rgba(255, 215, 0, 0.3) 45%, rgba(255,255,255,0) 70%);
+      border-radius: 50%;
+      filter: blur(20px);
+      pointer-events: none;
+      z-index: 1;
+      animation: pulseGlow 8s infinite alternate ease-in-out;
+    }
 
-  .stem-container {
-    position: relative;
-    height: 100%;
-    width: 120px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-  }
+    @keyframes pulseGlow {
+      0% { transform: translateX(-50%) scale(0.95); opacity: 0.8; }
+      100% { transform: translateX(-50%) scale(1.1); opacity: 1; }
+    }
 
-  .stem {
-    position: absolute;
-    bottom: 0;
-    width: 8px;
-    height: var(--h);
-    background: linear-gradient(to right, #3d6e28, #609838, #2d541d);
-    border-radius: 10px;
-    transform-origin: bottom;
-    animation: grow 1.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-    animation-delay: var(--delay);
-    transform: scaleY(0);
-  }
+    .welcome-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(26, 15, 0, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), visibility 1s;
+    }
 
-  .flower {
-    position: absolute;
-    bottom: calc(var(--h) - 20px);
-    width: 110px;
-    height: 110px;
-    transform: scale(0);
-    animation: bloom 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-    animation-delay: calc(var(--delay) + 1.2s);
-    cursor: pointer;
-    transition: transform 0.3s ease;
-  }
+    .welcome-overlay.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
 
-  .flower:hover {
-    transform: scale(1.15) !important;
-  }
+    .gift-card {
+      background: rgba(255, 255, 255, 0.92);
+      border: 3px solid #ffde59;
+      border-radius: 28px;
+      padding: 35px 25px;
+      text-align: center;
+      max-width: 440px;
+      width: 90%;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3), 0 0 40px rgba(255, 215, 0, 0.6);
+      transform: scale(0.9);
+      animation: giftBounce 2s infinite ease-in-out alternate;
+    }
 
-  /* pétalos */
-  .petal {
-    position: absolute;
-    width: 42px;
-    height: 60px;
-    left: 34px;
-    top: 25px;
-    background: linear-gradient(to top, #ffcb05, #fff5aa);
-    border-radius: 50% 50% 45% 45%;
-    box-shadow: 0 2px 10px rgba(180, 120, 0, 0.2);
-    transform-origin: 21px 30px;
-  }
+    @keyframes giftBounce {
+      0% { transform: scale(0.96) translateY(0); }
+      100% { transform: scale(1.02) translateY(-8px); }
+    }
 
-  .p1 { transform: rotate(0deg) translateY(-28px); }
-  .p2 { transform: rotate(45deg) translateY(-28px); }
-  .p3 { transform: rotate(90deg) translateY(-28px); }
-  .p4 { transform: rotate(135deg) translateY(-28px); }
-  .p5 { transform: rotate(180deg) translateY(-28px); }
-  .p6 { transform: rotate(225deg) translateY(-28px); }
-  .p7 { transform: rotate(270deg) translateY(-28px); }
-  .p8 { transform: rotate(315deg) translateY(-28px); }
+    .gift-icon-wrap {
+      font-size: 65px;
+      margin-bottom: 15px;
+      filter: drop-shadow(0 4px 10px rgba(255, 180, 0, 0.5));
+      animation: spinHeart 4s infinite ease-in-out;
+    }
 
-  .center {
-    position: absolute;
-    left: 35px;
-    top: 35px;
-    width: 40px;
-    height: 40px;
-    background: radial-gradient(circle, #a05a00 0%, #683a00 100%);
-    border-radius: 50%;
-    box-shadow: inset 0 0 0 4px #d48b00, 0 0 10px rgba(0,0,0,0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-weight: bold;
-    font-size: 16px;
-  }
+    @keyframes spinHeart {
+      0%, 100% { transform: rotate(-5deg) scale(1); }
+      50% { transform: rotate(5deg) scale(1.15); }
+    }
 
-  .leaf {
-    position: absolute;
-    width: 50px;
-    height: 24px;
-    background: linear-gradient(to right, #4c8230, #7bb848);
-    border-radius: 100% 0 100% 0;
-  }
+    .gift-title {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.8rem;
+      color: #7a4700;
+      margin-bottom: 10px;
+      line-height: 1.1;
+    }
 
-  .leaf.left {
-    left: -42px;
-    bottom: 35%;
-    transform: rotate(25deg);
-  }
+    .gift-subtitle {
+      font-size: 1rem;
+      color: #664614;
+      margin-bottom: 25px;
+      line-height: 1.5;
+    }
 
-  .leaf.right {
-    right: -42px;
-    bottom: 50%;
-    transform: scaleX(-1) rotate(25deg);
-  }
+    .btn-open-gift {
+      background: linear-gradient(135deg, #ffca28, #ff8f00);
+      color: #fff;
+      font-weight: 600;
+      font-size: 1.15rem;
+      padding: 16px 36px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(255, 143, 0, 0.5), inset 0 2px 4px rgba(255,255,255,0.6);
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-  /* FLORECITAS SECUNDARIAS DE FONDO */
-  .bg-field {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 45%;
-    pointer-events: none;
-    z-index: 2;
-  }
+    .btn-open-gift:hover {
+      transform: scale(1.08) translateY(-2px);
+      box-shadow: 0 15px 30px rgba(255, 143, 0, 0.7);
+    }
 
-  .mini-stem {
-    position: absolute;
-    bottom: 0;
-    width: 4px;
-    height: var(--h);
-    left: var(--x);
-    background: #507d32;
-    transform-origin: bottom;
-    animation: grow 1.5s ease-out forwards;
-    animation-delay: var(--delay);
-    transform: scaleY(0);
-    opacity: 0.85;
-  }
+    .player-card {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1.5px solid rgba(255, 255, 255, 0.8);
+      border-radius: 20px;
+      padding: 12px 18px;
+      box-shadow: 0 10px 30px rgba(138, 86, 0, 0.15), 0 0 15px rgba(255, 215, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      width: 290px;
+      transition: all 0.3s ease;
+    }
 
-  .mini-flower {
-    position: absolute;
-    bottom: calc(var(--h) - 2px);
-    left: 50%;
-    width: var(--s);
-    height: var(--s);
-    transform: translateX(-50%) scale(0);
-    animation: bloom 1s ease-out forwards;
-    animation-delay: calc(var(--delay) + 1s);
-  }
+    .player-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-  .mini-petal {
-    position: absolute;
-    width: 40%;
-    height: 60%;
-    left: 30%;
-    top: 20%;
-    background: var(--color, #ffe259);
-    border-radius: 50%;
-    transform-origin: 50% 50%;
-  }
+    .song-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-  .mini-center {
-    position: absolute;
-    left: 30%;
-    top: 30%;
-    width: 40%;
-    height: 40%;
-    background: #8c5700;
-    border-radius: 50%;
-  }
+    .disc-icon {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, #ffd700, #ff8c00);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 14px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
 
-  /* Tarjetas de mensajes */
-  .card-note {
-    position: absolute;
-    bottom: calc(var(--h) + 105px);
-    width: 220px;
-    background: rgba(255, 255, 255, 0.95);
-    padding: 14px 16px;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(110, 75, 0, 0.2);
-    text-align: center;
-    font-size: 14px;
-    line-height: 1.4;
-    color: #5c3b00;
-    border: 2px solid #ffd438;
-    opacity: 0;
-    transform: translateY(15px) scale(0.9);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    pointer-events: none;
-    z-index: 30;
-  }
+    .disc-icon.spinning {
+      animation: rotateDisc 3s linear infinite;
+    }
 
-  .card-note strong {
-    display: block;
-    color: #9e6400;
-    margin-bottom: 4px;
-    font-size: 15px;
-  }
+    @keyframes rotateDisc {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
 
-  .stem-container:hover .card-note {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+    .song-title-wrap {
+      display: flex;
+      flex-direction: column;
+    }
 
-  /* Luciórnagas flotantes */
-  .sparkle {
-    position: absolute;
-    background: #fff;
-    border-radius: 50%;
-    box-shadow: 0 0 10px #ffea79, 0 0 20px #ffea79;
-    animation: float 6s linear infinite;
-    opacity: 0;
-  }
+    .song-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #573300;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 150px;
+    }
 
-  @keyframes grow {
-    to { transform: scaleY(1); }
-  }
+    .song-subtitle {
+      font-size: 0.7rem;
+      color: #8c5d18;
+    }
 
-  @keyframes bloom {
-    to { transform: scale(1); }
-  }
+    /* Ecualizador animado */
+    .equalizer {
+      display: flex;
+      align-items: flex-end;
+      gap: 3px;
+      height: 18px;
+    }
 
-  @keyframes appear {
-    from { opacity: 0; transform: translateX(-50%) translateY(-20px); }
-    to { opacity: 1; transform: translateX(-50%) translateY(0); }
-  }
+    .eq-bar {
+      width: 3px;
+      background: #ffaa00;
+      border-radius: 2px;
+      height: 4px;
+      transition: height 0.2s ease;
+    }
 
-  @keyframes float {
-    0% { opacity: 0; transform: translateY(0) scale(0.5); }
-    50% { opacity: 0.9; }
-    100% { opacity: 0; transform: translateY(-180px) scale(1.2); }
-  }
+    .playing .eq-bar:nth-child(1) { animation: eq 0.8s infinite ease-in-out alternate; }
+    .playing .eq-bar:nth-child(2) { animation: eq 0.5s infinite ease-in-out alternate 0.2s; }
+    .playing .eq-bar:nth-child(3) { animation: eq 0.9s infinite ease-in-out alternate 0.4s; }
+    .playing .eq-bar:nth-child(4) { animation: eq 0.6s infinite ease-in-out alternate 0.1s; }
 
-  .grass {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 12%;
-    background: linear-gradient(to top, #3b6623, #5c9e38);
-    border-radius: 50% 50% 0 0 / 20% 20% 0 0;
-    z-index: 5;
-  }
-</style>
+    @keyframes eq {
+      0% { height: 3px; }
+      100% { height: 16px; }
+    }
+
+    .player-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .btn-play {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #ffb700;
+      color: white;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      box-shadow: 0 4px 10px rgba(255, 183, 0, 0.4);
+      transition: transform 0.2s ease;
+    }
+
+    .btn-play:hover {
+      transform: scale(1.1);
+    }
+
+    .progress-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 5px;
+      background: rgba(0,0,0,0.1);
+      border-radius: 10px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #ffc107, #ff8f00);
+      border-radius: 10px;
+      transition: width 0.1s linear;
+    }
+
+    .time-display {
+      font-size: 0.65rem;
+      color: #7a541a;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .vol-container {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: #8c5d18;
+      font-size: 0.75rem;
+    }
+
+    .vol-slider {
+      width: 50px;
+      accent-color: #ff9800;
+      cursor: pointer;
+    }
+
+    .top-message {
+      position: absolute;
+      top: 3%;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      width: 90%;
+      max-width: 650px;
+      z-index: 20;
+      pointer-events: none;
+    }
+
+    .top-message h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      color: #5c3500;
+      text-shadow: 0 2px 15px rgba(255, 255, 255, 0.9), 0 0 30px rgba(255, 215, 0, 0.5);
+      margin: 0;
+      letter-spacing: 1px;
+    }
+
+    .top-message p {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(0.85rem, 2vw, 1.1rem);
+      color: #6b4300;
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding: 6px 20px;
+      border-radius: 30px;
+      display: inline-block;
+      margin-top: 6px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+    }
+
+    /* Botón mágico extra de lluvia */
+    .btn-magic-rain {
+      position: absolute;
+      bottom: 25px;
+      left: 25px;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(10px);
+      border: 1.5px solid #ffe066;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: #6e4200;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-magic-rain:hover {
+      transform: translateY(-3px) scale(1.05);
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 12px 25px rgba(255, 200, 0, 0.3);
+    }
+
+    /* Contador cariñoso / frase */
+    .affection-badge {
+      position: absolute;
+      bottom: 25px;
+      right: 25px;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(10px);
+      border: 1.5px solid #ffe066;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      color: #734600;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+    }
+
+    .field {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 68%;
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-end;
+      padding: 0 5vw;
+      z-index: 10;
+    }
+
+    .stem-container {
+      position: relative;
+      height: 100%;
+      width: 140px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+    }
+
+    /* Tallo orgánico curvo */
+    .stem {
+      position: absolute;
+      bottom: 0;
+      width: 10px;
+      height: var(--h);
+      background: linear-gradient(to right, #2d5216, #53912a, #234211);
+      border-radius: 10px;
+      transform-origin: bottom center;
+      animation: growStem 2s cubic-bezier(0.25, 1, 0.5, 1) forwards, sway 4s infinite ease-in-out alternate;
+      animation-delay: var(--delay), calc(var(--delay) + 2s);
+      transform: scaleY(0);
+    }
+
+    @keyframes growStem {
+      to { transform: scaleY(1); }
+    }
+
+    @keyframes sway {
+      0% { transform: scaleY(1) rotate(0deg); }
+      100% { transform: scaleY(1) rotate(var(--sway-angle, 2.5deg)); }
+    }
+
+    /* Hojas */
+    .leaf {
+      position: absolute;
+      width: 55px;
+      height: 28px;
+      background: linear-gradient(135deg, #3f7320, #69a838);
+      border-radius: 100% 0 100% 0;
+      box-shadow: inset 0 2px 4px rgba(255,255,255,0.3), 0 4px 8px rgba(0,0,0,0.15);
+    }
+
+    .leaf.left {
+      left: -48px;
+      bottom: 40%;
+      transform: rotate(20deg);
+    }
+
+    .leaf.right {
+      right: -48px;
+      bottom: 55%;
+      transform: scaleX(-1) rotate(20deg);
+    }
+
+    /* Flor HD 3D */
+    .flower {
+      position: absolute;
+      bottom: calc(var(--h) - 30px);
+      width: 130px;
+      height: 130px;
+      transform: scale(0);
+      animation: bloom 1.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+      animation-delay: calc(var(--delay) + 1.5s);
+      cursor: pointer;
+      transition: filter 0.3s ease;
+      filter: drop-shadow(0 10px 15px rgba(168, 106, 0, 0.3));
+    }
+
+    @keyframes bloom {
+      to { transform: scale(1); }
+    }
+
+    .flower:hover {
+      filter: drop-shadow(0 0 25px rgba(255, 230, 0, 0.95));
+    }
+
+    .flower-glow {
+      position: absolute;
+      inset: -20px;
+      background: radial-gradient(circle, rgba(255, 230, 0, 0.4) 0%, rgba(255,255,255,0) 70%);
+      border-radius: 50%;
+      pointer-events: none;
+      animation: pulseAura 3s infinite ease-in-out alternate;
+    }
+
+    @keyframes pulseAura {
+      0% { opacity: 0.4; transform: scale(0.85); }
+      100% { opacity: 0.9; transform: scale(1.15); }
+    }
+
+    /* Pétalos realistas */
+    .petal {
+      position: absolute;
+      width: 46px;
+      height: 72px;
+      left: 42px;
+      top: 29px;
+      background: linear-gradient(to top, #ff9e00 0%, #ffdb15 60%, #fff7a1 100%);
+      border-radius: 50% 50% 45% 45%;
+      box-shadow: inset 0 -4px 8px rgba(212, 110, 0, 0.4), 0 2px 6px rgba(0,0,0,0.1);
+      transform-origin: 23px 36px;
+    }
+
+    .p1 { transform: rotate(0deg) translateY(-32px); }
+    .p2 { transform: rotate(45deg) translateY(-32px); }
+    .p3 { transform: rotate(90deg) translateY(-32px); }
+    .p4 { transform: rotate(135deg) translateY(-32px); }
+    .p5 { transform: rotate(180deg) translateY(-32px); }
+    .p6 { transform: rotate(225deg) translateY(-32px); }
+    .p7 { transform: rotate(270deg) translateY(-32px); }
+    .p8 { transform: rotate(315deg) translateY(-32px); }
+
+    /* Centro de la flor */
+    .center {
+      position: absolute;
+      left: 43px;
+      top: 43px;
+      width: 44px;
+      height: 44px;
+      background: radial-gradient(circle, #7a3e00 0%, #4a2400 100%);
+      border-radius: 50%;
+      box-shadow: inset 0 0 0 3px #d48000, 0 0 12px rgba(0,0,0,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffe680;
+      font-weight: 700;
+      font-size: 1.1rem;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+      z-index: 5;
+    }
+
+    /* Campo secundario tupido de florecitas */
+    .bg-field {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 50%;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .mini-stem {
+      position: absolute;
+      bottom: 0;
+      width: 3px;
+      height: var(--h);
+      left: var(--x);
+      background: #467326;
+      transform-origin: bottom center;
+      animation: growStem 1.5s ease-out forwards;
+      animation-delay: var(--delay);
+      transform: scaleY(0);
+      opacity: 0.9;
+    }
+
+    .mini-flower {
+      position: absolute;
+      bottom: calc(var(--h) - 2px);
+      left: 50%;
+      width: var(--s);
+      height: var(--s);
+      transform: translateX(-50%) scale(0);
+      animation: bloom 1s ease-out forwards;
+      animation-delay: calc(var(--delay) + 1s);
+    }
+
+    .mini-petal {
+      position: absolute;
+      width: 40%;
+      height: 60%;
+      left: 30%;
+      top: 20%;
+      background: var(--color, #ffe259);
+      border-radius: 50%;
+      transform-origin: 50% 50%;
+    }
+
+    .mini-center {
+      position: absolute;
+      left: 30%;
+      top: 30%;
+      width: 40%;
+      height: 40%;
+      background: #734300;
+      border-radius: 50%;
+    }
+
+    .grass {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 10%;
+      background: linear-gradient(to top, #24420e, #4b8026);
+      border-radius: 50% 50% 0 0 / 25% 25% 0 0;
+      z-index: 6;
+      box-shadow: 0 -5px 20px rgba(0,0,0,0.15);
+    }
+
+    .modal-letter {
+      position: fixed;
+      inset: 0;
+      background: rgba(20, 10, 0, 0.7);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 9000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .modal-letter.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .letter-card {
+      background: radial-gradient(circle at 50% 0%, #fffdf0 0%, #fff6cc 100%);
+      border: 2px solid #ffd700;
+      border-radius: 24px;
+      padding: 35px 30px;
+      max-width: 480px;
+      width: 100%;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.3), 0 0 30px rgba(255, 215, 0, 0.5);
+      position: relative;
+      transform: scale(0.8) translateY(30px);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      text-align: center;
+    }
+
+    .modal-letter.active .letter-card {
+      transform: scale(1) translateY(0);
+    }
+
+    .letter-icon {
+      font-size: 2.8rem;
+      margin-bottom: 12px;
+      display: inline-block;
+      filter: drop-shadow(0 4px 8px rgba(212, 140, 0, 0.3));
+    }
+
+    .letter-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      color: #6e3d00;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .letter-body {
+      font-size: 1.05rem;
+      color: #523406;
+      line-height: 1.7;
+      margin-bottom: 25px;
+      font-style: italic;
+    }
+
+    .btn-close-modal {
+      background: linear-gradient(135deg, #ffc107, #ff8f00);
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      box-shadow: 0 6px 15px rgba(255, 143, 0, 0.4);
+      transition: transform 0.2s ease;
+    }
+
+    .btn-close-modal:hover {
+      transform: scale(1.05);
+    }
+
+    /* Mariposas SVG flotantes */
+    .butterfly {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      z-index: 15;
+      pointer-events: none;
+      animation: flyAround 14s infinite ease-in-out;
+    }
+
+    @keyframes flyAround {
+      0% { transform: translate(0, 0) rotate(0deg); }
+      25% { transform: translate(120px, -80px) rotate(15deg); }
+      50% { transform: translate(200px, 40px) rotate(-10deg); }
+      75% { transform: translate(60px, -140px) rotate(20deg); }
+      100% { transform: translate(0, 0) rotate(0deg); }
+    }
+
+    .butterfly svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 2px 5px rgba(0,0,0,0.2));
+    }
+
+    .wing {
+      transform-origin: center;
+      animation: flap 0.35s infinite alternate ease-in-out;
+    }
+
+    @keyframes flap {
+      0% { transform: scaleX(1); }
+      100% { transform: scaleX(0.2); }
+    }
+
+    /* Adaptación responsiva */
+    @media (max-width: 768px) {
+      .player-card {
+        top: 12px;
+        right: 12px;
+        left: 12px;
+        width: auto;
+        padding: 10px 14px;
+      }
+
+      .top-message {
+        top: 115px;
+      }
+
+      .top-message h1 {
+        font-size: 2.3rem;
+      }
+
+      .top-message p {
+        font-size: 0.8rem;
+      }
+
+      .field {
+        height: 62%;
+        padding: 0 2vw;
+      }
+
+      .stem-container {
+        width: 80px;
+      }
+
+      .flower {
+        width: 95px;
+        height: 95px;
+        bottom: calc(var(--h) - 20px);
+      }
+
+      .petal {
+        width: 32px;
+        height: 52px;
+        left: 31px;
+        top: 21px;
+        transform-origin: 16px 26px;
+      }
+
+      .p1 { transform: rotate(0deg) translateY(-22px); }
+      .p2 { transform: rotate(45deg) translateY(-22px); }
+      .p3 { transform: rotate(90deg) translateY(-22px); }
+      .p4 { transform: rotate(135deg) translateY(-22px); }
+      .p5 { transform: rotate(180deg) translateY(-22px); }
+      .p6 { transform: rotate(225deg) translateY(-22px); }
+      .p7 { transform: rotate(270deg) translateY(-22px); }
+      .p8 { transform: rotate(315deg) translateY(-22px); }
+
+      .center {
+        left: 31px;
+        top: 31px;
+        width: 32px;
+        height: 32px;
+        font-size: 0.9rem;
+      }
+
+      .leaf {
+        width: 38px;
+        height: 20px;
+      }
+
+      .leaf.left { left: -32px; }
+      .leaf.right { right: -32px; }
+
+      .btn-magic-rain {
+        bottom: 15px;
+        left: 15px;
+        padding: 8px 14px;
+        font-size: 0.75rem;
+      }
+
+      .affection-badge {
+        bottom: 15px;
+        right: 15px;
+        padding: 6px 12px;
+        font-size: 0.7rem;
+      }
+    }
+  </style>
 </head>
-
 <body>
-<div class="scene">
-  <div class="sun-glow"></div>
 
-  <div class="message">
-    <h1>Para ti, Mai 💛</h1>
-    <p>Cada una de estas 4 flores guarda algo muy especial... (Tócalas o pasa el mouse) ✨</p>
+  <!-- Audio HTML5 -->
+  <audio id="audioPlayer" src="flores.mp3" preload="auto" loop></audio>
+
+  <!-- Canvas de partículas de lluvia de pétalos -->
+  <canvas id="petalCanvas"></canvas>
+
+  <!-- Brillo solar de fondo -->
+  <div class="sunburst"></div>
+
+  <!-- MODAL DE APERTURA (GIFT) -->
+  <div class="welcome-overlay" id="welcomeOverlay">
+    <div class="gift-card">
+      <div class="gift-icon-wrap">🎁🌻</div>
+      <h1 class="gift-title">Un Regalo Especial Para Mai</h1>
+      <p class="gift-subtitle">Toca el botón para abrir tu sorpresa llena de flores amarillas, música y magia pensada solo para ti... ✨💛</p>
+      <button class="btn-open-gift" id="btnOpenGift">
+        <i class="fa-solid fa-envelope-open-text"></i> Abrir Sorpresa
+      </button>
+    </div>
   </div>
 
-  <!-- REPRODUCTOR YOUTUBE: FLORES AMARILLAS - FLORICIENTA -->
- <section class="audio-card" aria-label="Reproductor de música">
-  <div class="audio-title">🎵 Flores Amarillas — Floricienta 💛</div>
-  <audio id="localAudio" controls preload="metadata" playsinline>
-    <source src="flores.mp3" type="audio/mpeg">
-    Tu navegador no puede reproducir este audio.
-  </audio>
-  <div class="audio-note"><strong>flores.mp3</strong>.</div>
-</section>
+  <!-- REPRODUCTOR DE AUDIO FLOTANTE -->
+  <div class="player-card" id="playerCard">
+    <div class="player-header">
+      <div class="song-info">
+        <div class="disc-icon" id="discIcon">
+          <i class="fa-solid fa-music"></i>
+        </div>
+        <div class="song-title-wrap">
+          <span class="song-title">Flores Amarillas</span>
+          <span class="song-subtitle">Floricienta 💛</span>
+        </div>
+      </div>
+      <div class="equalizer" id="equalizer">
+        <div class="eq-bar"></div>
+        <div class="eq-bar"></div>
+        <div class="eq-bar"></div>
+        <div class="eq-bar"></div>
+      </div>
+    </div>
 
-  <!-- Luces decorativas -->
-  <div class="sparkle" style="width:8px; height:8px; left: 12%; bottom: 20%; animation-delay: 0.5s;"></div>
-  <div class="sparkle" style="width:10px; height:10px; left: 38%; bottom: 15%; animation-delay: 2.2s;"></div>
-  <div class="sparkle" style="width:6px; height:6px; left: 65%; bottom: 25%; animation-delay: 1.1s;"></div>
-  <div class="sparkle" style="width:9px; height:9px; left: 85%; bottom: 18%; animation-delay: 3.5s;"></div>
+    <div class="player-controls">
+      <button class="btn-play" id="btnPlayPause" title="Reproducir / Pausar">
+        <i class="fa-solid fa-play" id="playIcon"></i>
+      </button>
 
-  <!-- CAMPO SECUNDARIO LLENO DE FLORECITAS -->
+      <div class="progress-container">
+        <div class="progress-bar" id="progressBar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div class="time-display">
+          <span id="currentTime">0:00</span>
+          <span id="durationTime">0:00</span>
+        </div>
+      </div>
+
+      <div class="vol-container">
+        <i class="fa-solid fa-volume-high"></i>
+        <input type="range" class="vol-slider" id="volSlider" min="0" max="1" step="0.05" value="0.9">
+      </div>
+    </div>
+  </div>
+
+  <!-- ENCABEZADO Y MENSAJE PRINCIPAL -->
+  <div class="top-message">
+    <h1>Para ti, Mai 💛</h1>
+    <p>Haz clic en cada una de las 4 flores para descubrir sus secretos ✨</p>
+  </div>
+
+  <!-- BOTÓN DE LLUVIA MÁGICA EXTRA -->
+  <button class="btn-magic-rain" id="btnMagicRain">
+    <i class="fa-solid fa-wand-magic-sparkles"></i> Lluvia Sorpresa
+  </button>
+
+  <!-- BADGE DE CARIÑO -->
+  <div class="affection-badge">
+    <i class="fa-solid fa-heart" style="color: #e63946;"></i> Mai eres súper increíble 💛
+  </div>
+
+  <!-- MARIPOSAS ANIMADAS SVG -->
+  <div class="butterfly" style="top: 25%; left: 15%; animation-delay: 0s;">
+    <svg viewBox="0 0 50 50">
+      <path class="wing" fill="#ffb700" d="M25,25 Q10,5 5,20 Q0,35 25,28 Z" />
+      <path class="wing" fill="#ffa000" d="M25,25 Q40,5 45,20 Q50,35 25,28 Z" />
+      <path fill="#4a2c00" d="M24,15 L26,15 L26,32 L24,32 Z" />
+    </svg>
+  </div>
+
+  <div class="butterfly" style="top: 35%; right: 20%; animation-delay: -5s;">
+    <svg viewBox="0 0 50 50">
+      <path class="wing" fill="#ffe066" d="M25,25 Q10,5 5,20 Q0,35 25,28 Z" />
+      <path class="wing" fill="#ffb700" d="M25,25 Q40,5 45,20 Q50,35 25,28 Z" />
+      <path fill="#4a2c00" d="M24,15 L26,15 L26,32 L24,32 Z" />
+    </svg>
+  </div>
+
+  <!-- CAMPO SECUNDARIO TUPIOD DE FLORECITAS -->
   <div class="bg-field" id="bgField"></div>
 
   <!-- CAMPO PRINCIPAL (4 FLORES INTERACTIVAS DE MAI) -->
   <div class="field">
+
     <!-- FLOR 1 -->
     <div class="stem-container">
-      <div class="card-note" style="--h: 240px;">
-        <strong>🌸 Flor 1: Tu Luz</strong>
-         Tu presencia siempre logra cambiarlo todo para mejor :3 Siempre tu misma :D.
-      </div>
-      <div class="stem" style="--h: 240px; --delay: 0.2s;">
+      <div class="stem" style="--h: 240px; --delay: 0.2s; --sway-angle: 3deg;">
         <div class="leaf left"></div>
         <div class="leaf right"></div>
-        <div class="flower" style="--h: 240px; --delay: 0.2s;">
+        <div class="flower" style="--h: 240px; --delay: 0.2s;" data-flower="1">
+          <div class="flower-glow"></div>
           <div class="petal p1"></div><div class="petal p2"></div><div class="petal p3"></div><div class="petal p4"></div>
           <div class="petal p5"></div><div class="petal p6"></div><div class="petal p7"></div><div class="petal p8"></div>
           <div class="center">1</div>
@@ -446,14 +946,11 @@
 
     <!-- FLOR 2 -->
     <div class="stem-container">
-      <div class="card-note" style="--h: 280px;">
-        <strong>🌻 Flor 2: Tus ojitoosssss</strong>
-         Tienes unos ojitososss bien hermosoossss me los das ? jskjsks:D.
-      </div>
-      <div class="stem" style="--h: 280px; --delay: 0.5s;">
+      <div class="stem" style="--h: 290px; --delay: 0.5s; --sway-angle: -2.5deg;">
         <div class="leaf left"></div>
         <div class="leaf right"></div>
-        <div class="flower" style="--h: 280px; --delay: 0.5s;">
+        <div class="flower" style="--h: 290px; --delay: 0.5s;" data-flower="2">
+          <div class="flower-glow"></div>
           <div class="petal p1"></div><div class="petal p2"></div><div class="petal p3"></div><div class="petal p4"></div>
           <div class="petal p5"></div><div class="petal p6"></div><div class="petal p7"></div><div class="petal p8"></div>
           <div class="center">2</div>
@@ -463,14 +960,11 @@
 
     <!-- FLOR 3 -->
     <div class="stem-container">
-      <div class="card-note" style="--h: 260px;">
-        <strong>🌷 Flor 3: niñaaa </strong>
-        Gracias por estar, por escucharme y por hacerme sentir tan bien siempre. Ocupas un lugar gigante en mi corazón.
-      </div>
-      <div class="stem" style="--h: 260px; --delay: 0.8s;">
+      <div class="stem" style="--h: 260px; --delay: 0.8s; --sway-angle: 2deg;">
         <div class="leaf left"></div>
         <div class="leaf right"></div>
-        <div class="flower" style="--h: 260px; --delay: 0.8s;">
+        <div class="flower" style="--h: 260px; --delay: 0.8s;" data-flower="3">
+          <div class="flower-glow"></div>
           <div class="petal p1"></div><div class="petal p2"></div><div class="petal p3"></div><div class="petal p4"></div>
           <div class="petal p5"></div><div class="petal p6"></div><div class="petal p7"></div><div class="petal p8"></div>
           <div class="center">3</div>
@@ -480,14 +974,11 @@
 
     <!-- FLOR 4 -->
     <div class="stem-container">
-      <div class="card-note" style="--h: 220px;">
-        <strong>✨ Flor 4: Lo Única Que Eres</strong>
-        Nunca olvides lo increíble y valiosa que eres , Mai. ¡Eres súper importante y te quiero muchísimo!  Nunca cambiesss valesss millll :D💛
-      </div>
-      <div class="stem" style="--h: 220px; --delay: 1.1s;">
+      <div class="stem" style="--h: 220px; --delay: 1.1s; --sway-angle: -3deg;">
         <div class="leaf left"></div>
         <div class="leaf right"></div>
-        <div class="flower" style="--h: 220px; --delay: 1.1s;">
+        <div class="flower" style="--h: 220px; --delay: 1.1s;" data-flower="4">
+          <div class="flower-glow"></div>
           <div class="petal p1"></div><div class="petal p2"></div><div class="petal p3"></div><div class="petal p4"></div>
           <div class="petal p5"></div><div class="petal p6"></div><div class="petal p7"></div><div class="petal p8"></div>
           <div class="center">4</div>
@@ -497,45 +988,291 @@
 
   </div>
 
+  <!-- PASTO DE FONDO -->
   <div class="grass"></div>
-</div>
 
-<script>
-  // Generar dinámicamente un campo tupido de florecitas secundarias alrededor
-  const bgField = document.getElementById('bgField');
-  const colors = ['#ffe159', '#fff8b5', '#ffd119', '#ffffff', '#ffeb8a'];
-  
-  const bgFlowersData = [
-    [3, 90, 30, 0.1], [6, 140, 38, 0.4], [10, 70, 25, 0.2], [14, 180, 42, 0.6],
-    [18, 110, 32, 0.3], [22, 60, 22, 0.5], [26, 150, 40, 0.2], [30, 85, 28, 0.7],
-    [34, 130, 35, 0.1], [38, 75, 26, 0.4], [42, 160, 44, 0.3], [46, 100, 30, 0.8],
-    [50, 65, 24, 0.2], [54, 140, 38, 0.5], [58, 90, 28, 0.1], [62, 170, 45, 0.6],
-    [66, 80, 26, 0.3], [70, 125, 34, 0.7], [74, 60, 22, 0.2], [78, 150, 40, 0.4],
-    [82, 95, 30, 0.8], [86, 135, 36, 0.1], [90, 70, 25, 0.5], [94, 160, 42, 0.3], [97, 85, 28, 0.6]
-  ];
+  <!-- MODAL DE CARTAS INTERACTIVAS -->
+  <div class="modal-letter" id="modalLetter">
+    <div class="letter-card">
+      <div class="letter-icon" id="letterIcon">🌸</div>
+      <h2 class="letter-title" id="letterTitle">Título de la carta</h2>
+      <p class="letter-body" id="letterBody">Mensaje especial de la carta...</p>
+      <button class="btn-close-modal" id="btnCloseModal">
+        <i class="fa-solid fa-heart"></i> Guardar en el corazón
+      </button>
+    </div>
+  </div>
 
-  bgFlowersData.forEach(([x, h, s, delay]) => {
-    const color = colors[Math.floor(Math.random() * colors.length)];
-    const stem = document.createElement('div');
-    stem.className = 'mini-stem';
-    stem.style.setProperty('--x', `${x}%`);
-    stem.style.setProperty('--h', `${h}px`);
-    stem.style.setProperty('--delay', `${delay}s`);
+  <script>
+    // Datos de los mensajes de las 4 flores para Mai
+    const flowerMessages = {
+      1: {
+        icon: '🌸',
+        title: 'Flor 1: Tu Luz ✨',
+        text: 'Tu presencia siempre logra cambiarlo todo para mejor :3 Siempre mantente fiel a ti misma. ¡Iluminas la vida de todos a tu alrededor! 💛'
+      },
+      2: {
+        icon: '🌻',
+        title: 'Flor 2: Tus Ojitos 👀✨',
+        text: 'Tienes unos ojitos hermosos y súper expresivos que transmiten una ternura increíble. ¿Me los das un ratito? jskjsks :D'
+      },
+      3: {
+        icon: '🌷',
+        title: 'Flor 3: Una Niña Especial 💖',
+        text: 'Gracias por estar siempre, por escucharme y por hacerme sentir tan bien con tu compañía. Ocupas un lugar gigante y súper bonito en mi corazón.'
+      },
+      4: {
+        icon: '✨',
+        title: 'Flor 4: Lo Única Que Eres 🌟',
+        text: 'Nunca olvides lo increíble, valiosa e inteligente que eres, Mai. ¡Eres súper importante y te quiero muchísimo! Nunca cambies, vales mil 💛'
+      }
+    };
 
-    let petalsHTML = '';
-    for (let i = 0; i < 6; i++) {
-      petalsHTML += `<div class="mini-petal" style="transform: rotate(${i * 60}deg) translateY(-35%); --color: ${color}"></div>`;
+    // Referencias al DOM
+    const audioPlayer = document.getElementById('audioPlayer');
+    const welcomeOverlay = document.getElementById('welcomeOverlay');
+    const btnOpenGift = document.getElementById('btnOpenGift');
+    const btnPlayPause = document.getElementById('btnPlayPause');
+    const playIcon = document.getElementById('playIcon');
+    const discIcon = document.getElementById('discIcon');
+    const playerCard = document.getElementById('playerCard');
+    const progressBar = document.getElementById('progressBar');
+    const progressFill = document.getElementById('progressFill');
+    const currentTimeEl = document.getElementById('currentTime');
+    const durationTimeEl = document.getElementById('durationTime');
+    const volSlider = document.getElementById('volSlider');
+    const modalLetter = document.getElementById('modalLetter');
+    const letterIcon = document.getElementById('letterIcon');
+    const letterTitle = document.getElementById('letterTitle');
+    const letterBody = document.getElementById('letterBody');
+    const btnCloseModal = document.getElementById('btnCloseModal');
+    const btnMagicRain = document.getElementById('btnMagicRain');
+
+    btnOpenGift.addEventListener('click', () => {
+      welcomeOverlay.classList.add('hidden');
+      playAudio();
+      triggerBurstParticles(window.innerWidth / 2, window.innerHeight / 2, 80);
+    });
+
+    function playAudio() {
+      audioPlayer.play().then(() => {
+        updatePlayUI(true);
+      }).catch(err => {
+        console.log("Autoplay con sonido bloqueado o archivo no encontrado:", err);
+      });
     }
 
-    stem.innerHTML = `
-      <div class="mini-flower" style="--h: ${h}px; --s: ${s}px; --delay: ${delay}s;">
-        ${petalsHTML}
-        <div class="mini-center"></div>
-      </div>
-    `;
+    function updatePlayUI(isPlaying) {
+      if (isPlaying) {
+        playIcon.className = 'fa-solid fa-pause';
+        discIcon.classList.add('spinning');
+        playerCard.classList.add('playing');
+      } else {
+        playIcon.className = 'fa-solid fa-play';
+        discIcon.classList.remove('spinning');
+        playerCard.classList.remove('playing');
+      }
+    }
 
-    bgField.appendChild(stem);
-  });
-</script>
+    btnPlayPause.addEventListener('click', () => {
+      if (audioPlayer.paused) {
+        audioPlayer.play();
+        updatePlayUI(true);
+      } else {
+        audioPlayer.pause();
+        updatePlayUI(false);
+      }
+    });
+
+    // Barra de progreso de audio
+    audioPlayer.addEventListener('timeupdate', () => {
+      if (audioPlayer.duration) {
+        const pct = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+        progressFill.style.width = `${pct}%`;
+        currentTimeEl.textContent = formatTime(audioPlayer.currentTime);
+        durationTimeEl.textContent = formatTime(audioPlayer.duration);
+      }
+    });
+
+    progressBar.addEventListener('click', (e) => {
+      const rect = progressBar.getBoundingClientRect();
+      const clickPos = (e.clientX - rect.left) / rect.width;
+      if (audioPlayer.duration) {
+        audioPlayer.currentTime = clickPos * audioPlayer.duration;
+      }
+    });
+
+    volSlider.addEventListener('input', (e) => {
+      audioPlayer.volume = e.target.value;
+    });
+
+    function formatTime(seconds) {
+      const mins = Math.floor(seconds / 60);
+      const secs = Math.floor(seconds % 60);
+      return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+    }
+
+    const bgField = document.getElementById('bgField');
+    const bgColors = ['#ffe159', '#fff8b5', '#ffd119', '#ffffff', '#ffeb8a'];
+    const bgFlowersData = [
+      [3, 90, 28, 0.1], [7, 140, 36, 0.4], [12, 70, 24, 0.2], [16, 180, 40, 0.6],
+      [20, 110, 30, 0.3], [25, 65, 22, 0.5], [29, 150, 38, 0.2], [33, 85, 26, 0.7],
+      [37, 130, 34, 0.1], [42, 75, 25, 0.4], [46, 160, 42, 0.3], [50, 100, 28, 0.8],
+      [54, 65, 22, 0.2], [58, 140, 36, 0.5], [63, 90, 26, 0.1], [67, 170, 42, 0.6],
+      [71, 80, 25, 0.3], [75, 125, 32, 0.7], [80, 60, 20, 0.2], [84, 150, 38, 0.4],
+      [88, 95, 28, 0.8], [92, 135, 34, 0.1], [96, 75, 24, 0.5]
+    ];
+
+    bgFlowersData.forEach(([x, h, s, delay]) => {
+      const color = bgColors[Math.floor(Math.random() * bgColors.length)];
+      const stem = document.createElement('div');
+      stem.className = 'mini-stem';
+      stem.style.setProperty('--x', `${x}%`);
+      stem.style.setProperty('--h', `${h}px`);
+      stem.style.setProperty('--delay', `${delay}s`);
+
+      let petalsHTML = '';
+      for (let i = 0; i < 6; i++) {
+        petalsHTML += `<div class="mini-petal" style="transform: rotate(${i * 60}deg) translateY(-35%); --color: ${color}"></div>`;
+      }
+
+      stem.innerHTML = `
+        <div class="mini-flower" style="--h: ${h}px; --s: ${s}px; --delay: ${delay}s;">
+          ${petalsHTML}
+          <div class="mini-center"></div>
+        </div>
+      `;
+      bgField.appendChild(stem);
+    });
+
+    document.querySelectorAll('.flower').forEach(flowerEl => {
+      flowerEl.addEventListener('click', (e) => {
+        const id = flowerEl.getAttribute('data-flower');
+        const data = flowerMessages[id];
+        
+        // Explosión de partículas de estrellas en las coordenadas de la flor
+        const rect = flowerEl.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        triggerBurstParticles(centerX, centerY, 50);
+
+        // Mostrar carta
+        letterIcon.textContent = data.icon;
+        letterTitle.textContent = data.title;
+        letterBody.textContent = data.text;
+        modalLetter.classList.add('active');
+      });
+    });
+
+    btnCloseModal.addEventListener('click', () => {
+      modalLetter.classList.remove('active');
+    });
+
+    modalLetter.addEventListener('click', (e) => {
+      if (e.target === modalLetter) {
+        modalLetter.classList.remove('active');
+      }
+    });
+
+    btnMagicRain.addEventListener('click', () => {
+      triggerBurstParticles(window.innerWidth / 2, 100, 100);
+    });
+
+    const canvas = document.getElementById('petalCanvas');
+    const ctx = canvas.getContext('2d');
+
+    let width = canvas.width = window.innerWidth;
+    let height = canvas.height = window.innerHeight;
+
+    window.addEventListener('resize', () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    });
+
+    class PetalParticle {
+      constructor(x, y, isBurst = false) {
+        this.x = x !== undefined ? x : Math.random() * width;
+        this.y = y !== undefined ? y : Math.random() * -height;
+        this.size = Math.random() * 8 + 6;
+        this.speedY = isBurst ? (Math.random() - 0.5) * 10 : Math.random() * 1.5 + 0.8;
+        this.speedX = isBurst ? (Math.random() - 0.5) * 10 : Math.random() * 1 - 0.5;
+        this.angle = Math.random() * Math.PI * 2;
+        this.spin = (Math.random() - 0.5) * 0.05;
+        this.color = ['#ffcb05', '#ffe57f', '#ffd54f', '#ffb300', '#fff8e1'][Math.floor(Math.random() * 5)];
+        this.opacity = Math.random() * 0.7 + 0.3;
+        this.isBurst = isBurst;
+        this.gravity = isBurst ? 0.15 : 0;
+        this.life = isBurst ? 100 : 9999;
+      }
+
+      update() {
+        this.angle += this.spin;
+        this.x += this.speedX + Math.sin(this.angle) * 0.5;
+        this.speedY += this.gravity;
+        this.y += this.speedY;
+
+        if (this.isBurst) {
+          this.life--;
+          this.opacity = this.life / 100;
+        } else if (this.y > height + 20) {
+          this.y = -20;
+          this.x = Math.random() * width;
+        }
+      }
+
+      draw() {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.angle);
+        ctx.globalAlpha = Math.max(0, this.opacity);
+        ctx.fillStyle = this.color;
+        
+        // Dibujo en forma de pétalo suave
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.quadraticCurveTo(this.size, -this.size / 2, this.size, -this.size);
+        ctx.quadraticCurveTo(0, -this.size * 1.5, -this.size, -this.size);
+        ctx.quadraticCurveTo(-this.size, -this.size / 2, 0, 0);
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    const particles = [];
+    // Crear pétalos constantes de lluvia suave
+    for (let i = 0; i < 40; i++) {
+      particles.push(new PetalParticle());
+    }
+
+    function triggerBurstParticles(x, y, count) {
+      for (let i = 0; i < count; i++) {
+        particles.push(new PetalParticle(x, y, true));
+      }
+    }
+
+    // Estela luminosa al mover el mouse o tocar pantalla
+    window.addEventListener('pointermove', (e) => {
+      if (Math.random() < 0.3) {
+        particles.push(new PetalParticle(e.clientX, e.clientY, true));
+      }
+    });
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, width, height);
+      for (let i = particles.length - 1; i >= 0; i--) {
+        const p = particles[i];
+        p.update();
+        p.draw();
+        if (p.isBurst && p.life <= 0) {
+          particles.splice(i, 1);
+        }
+      }
+      requestAnimationFrame(animateParticles);
+    }
+
+    animateParticles();
+  </script>
+</body>
+</html>
 </body>
 </html>
