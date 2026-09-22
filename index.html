@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Unas flores muy especiales para Mai 💛✨</title>
-  
+  <title>Unas Flores Especiales Para Mai 💛✨</title>
+
+  <!-- Google Fonts & FontAwesome -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,600;1,400&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,600;1,400;1,600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
@@ -94,16 +95,16 @@
     }
 
     .gift-card {
-      background: rgba(255, 255, 255, 0.92);
+      background: rgba(255, 255, 255, 0.94);
       border: 3px solid #ffde59;
       border-radius: 28px;
       padding: 35px 25px;
       text-align: center;
-      max-width: 440px;
+      max-width: 450px;
       width: 90%;
       box-shadow: 0 20px 50px rgba(0,0,0,0.3), 0 0 40px rgba(255, 215, 0, 0.6);
-      transform: scale(0.9);
-      animation: giftBounce 2s infinite ease-in-out alternate;
+      transform: scale(0.95);
+      animation: giftBounce 2.5s infinite ease-in-out alternate;
     }
 
     @keyframes giftBounce {
@@ -132,7 +133,7 @@
     }
 
     .gift-subtitle {
-      font-size: 1rem;
+      font-size: 0.95rem;
       color: #664614;
       margin-bottom: 25px;
       line-height: 1.5;
@@ -142,7 +143,7 @@
       background: linear-gradient(135deg, #ffca28, #ff8f00);
       color: #fff;
       font-weight: 600;
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       padding: 16px 36px;
       border: none;
       border-radius: 50px;
@@ -164,10 +165,10 @@
       top: 20px;
       right: 20px;
       z-index: 100;
-      background: rgba(255, 255, 255, 0.65);
+      background: rgba(255, 255, 255, 0.68);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
-      border: 1.5px solid rgba(255, 255, 255, 0.8);
+      border: 1.5px solid rgba(255, 255, 255, 0.85);
       border-radius: 20px;
       padding: 12px 18px;
       box-shadow: 0 10px 30px rgba(138, 86, 0, 0.15), 0 0 15px rgba(255, 215, 0, 0.3);
@@ -191,8 +192,8 @@
     }
 
     .disc-icon {
-      width: 32px;
-      height: 32px;
+      width: 34px;
+      height: 34px;
       background: linear-gradient(135deg, #ffd700, #ff8c00);
       border-radius: 50%;
       display: flex;
@@ -232,7 +233,6 @@
       color: #8c5d18;
     }
 
-    /* Ecualizador animado */
     .equalizer {
       display: flex;
       align-items: flex-end;
@@ -327,7 +327,7 @@
     }
 
     .vol-slider {
-      width: 50px;
+      width: 45px;
       accent-color: #ff9800;
       cursor: pointer;
     }
@@ -339,7 +339,7 @@
       transform: translateX(-50%);
       text-align: center;
       width: 90%;
-      max-width: 650px;
+      max-width: 680px;
       z-index: 20;
       pointer-events: none;
     }
@@ -355,9 +355,9 @@
 
     .top-message p {
       font-family: 'Poppins', sans-serif;
-      font-size: clamp(0.85rem, 2vw, 1.1rem);
+      font-size: clamp(0.85rem, 2vw, 1.05rem);
       color: #6b4300;
-      background: rgba(255, 255, 255, 0.55);
+      background: rgba(255, 255, 255, 0.6);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
       padding: 6px 20px;
@@ -365,19 +365,24 @@
       display: inline-block;
       margin-top: 6px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.75);
     }
 
-    /* Botón mágico extra de lluvia */
-    .btn-magic-rain {
+    .action-toolbar {
       position: absolute;
       bottom: 25px;
       left: 25px;
       z-index: 100;
-      background: rgba(255, 255, 255, 0.75);
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .btn-action {
+      background: rgba(255, 255, 255, 0.8);
       backdrop-filter: blur(10px);
       border: 1.5px solid #ffe066;
-      padding: 10px 20px;
+      padding: 10px 18px;
       border-radius: 30px;
       font-weight: 600;
       font-size: 0.85rem;
@@ -390,29 +395,29 @@
       transition: all 0.3s ease;
     }
 
-    .btn-magic-rain:hover {
+    .btn-action:hover, .btn-action.active {
       transform: translateY(-3px) scale(1.05);
       background: rgba(255, 255, 255, 0.95);
-      box-shadow: 0 12px 25px rgba(255, 200, 0, 0.3);
+      box-shadow: 0 12px 25px rgba(255, 200, 0, 0.4);
+      border-color: #ffa800;
     }
 
-    /* Contador cariñoso / frase */
-    .affection-badge {
+    .seeds-counter-badge {
       position: absolute;
       bottom: 25px;
       right: 25px;
       z-index: 100;
-      background: rgba(255, 255, 255, 0.65);
+      background: rgba(255, 255, 255, 0.75);
       backdrop-filter: blur(10px);
       border: 1.5px solid #ffe066;
       padding: 8px 16px;
       border-radius: 20px;
       font-size: 0.8rem;
       color: #734600;
-      font-weight: 500;
+      font-weight: 600;
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
       box-shadow: 0 6px 15px rgba(0,0,0,0.08);
     }
 
@@ -437,7 +442,6 @@
       align-items: flex-end;
     }
 
-    /* Tallo orgánico curvo */
     .stem {
       position: absolute;
       bottom: 0;
@@ -460,7 +464,6 @@
       100% { transform: scaleY(1) rotate(var(--sway-angle, 2.5deg)); }
     }
 
-    /* Hojas */
     .leaf {
       position: absolute;
       width: 55px;
@@ -482,7 +485,6 @@
       transform: scaleX(-1) rotate(20deg);
     }
 
-    /* Flor HD 3D */
     .flower {
       position: absolute;
       bottom: calc(var(--h) - 30px);
@@ -518,7 +520,6 @@
       100% { opacity: 0.9; transform: scale(1.15); }
     }
 
-    /* Pétalos realistas */
     .petal {
       position: absolute;
       width: 46px;
@@ -540,7 +541,6 @@
     .p7 { transform: rotate(270deg) translateY(-32px); }
     .p8 { transform: rotate(315deg) translateY(-32px); }
 
-    /* Centro de la flor */
     .center {
       position: absolute;
       left: 43px;
@@ -560,7 +560,89 @@
       z-index: 5;
     }
 
-    /* Campo secundario tupido de florecitas */
+    .planted-flower-container {
+      position: absolute;
+      pointer-events: auto;
+      z-index: 25;
+      transform-origin: bottom center;
+      animation: growSprout 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+
+    @keyframes growSprout {
+      0% { transform: scale(0) translateY(40px); }
+      100% { transform: scale(1) translateY(0); }
+    }
+
+    .planted-flower-head {
+      width: 60px;
+      height: 60px;
+      position: relative;
+      cursor: pointer;
+      filter: drop-shadow(0 4px 10px rgba(255, 180, 0, 0.5));
+      transition: transform 0.2s ease;
+    }
+
+    .planted-flower-head:hover {
+      transform: scale(1.2);
+    }
+
+    .planted-petal {
+      position: absolute;
+      width: 20px;
+      height: 32px;
+      left: 20px;
+      top: 14px;
+      background: linear-gradient(to top, #ffa000, #ffe57f);
+      border-radius: 50%;
+      transform-origin: 10px 16px;
+    }
+
+    .planted-center {
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      left: 19px;
+      top: 19px;
+      background: #5e3500;
+      border-radius: 50%;
+      border: 2px solid #ffca28;
+      z-index: 2;
+    }
+
+    .planted-stem {
+      width: 4px;
+      height: 50px;
+      background: #467326;
+      margin: 0 auto;
+      border-radius: 4px;
+    }
+
+    .wish-bubble {
+      position: absolute;
+      bottom: 75px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255, 255, 255, 0.95);
+      border: 1.5px solid #ffca28;
+      padding: 8px 14px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      font-size: 0.8rem;
+      color: #5c3500;
+      font-weight: 500;
+      white-space: nowrap;
+      pointer-events: none;
+      animation: floatWish 3.5s forwards ease-out;
+      z-index: 30;
+    }
+
+    @keyframes floatWish {
+      0% { opacity: 0; transform: translateX(-50%) translateY(10px) scale(0.8); }
+      20% { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); }
+      80% { opacity: 1; }
+      100% { opacity: 0; transform: translateX(-50%) translateY(-30px); }
+    }
+
     .bg-field {
       position: absolute;
       bottom: 0;
@@ -630,7 +712,7 @@
     .modal-letter {
       position: fixed;
       inset: 0;
-      background: rgba(20, 10, 0, 0.7);
+      background: rgba(20, 10, 0, 0.72);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
       z-index: 9000;
@@ -682,7 +764,7 @@
     }
 
     .letter-body {
-      font-size: 1.05rem;
+      font-size: 1.02rem;
       color: #523406;
       line-height: 1.7;
       margin-bottom: 25px;
@@ -706,7 +788,6 @@
       transform: scale(1.05);
     }
 
-    /* Mariposas SVG flotantes */
     .butterfly {
       position: absolute;
       width: 40px;
@@ -740,7 +821,6 @@
       100% { transform: scaleX(0.2); }
     }
 
-    /* Adaptación responsiva */
     @media (max-width: 768px) {
       .player-card {
         top: 12px;
@@ -751,11 +831,11 @@
       }
 
       .top-message {
-        top: 115px;
+        top: 125px;
       }
 
       .top-message h1 {
-        font-size: 2.3rem;
+        font-size: 2.2rem;
       }
 
       .top-message p {
@@ -763,7 +843,7 @@
       }
 
       .field {
-        height: 62%;
+        height: 60%;
         padding: 0 2vw;
       }
 
@@ -810,14 +890,20 @@
       .leaf.left { left: -32px; }
       .leaf.right { right: -32px; }
 
-      .btn-magic-rain {
+      .action-toolbar {
         bottom: 15px;
         left: 15px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+
+      .btn-action {
         padding: 8px 14px;
         font-size: 0.75rem;
       }
 
-      .affection-badge {
+      .seeds-counter-badge {
         bottom: 15px;
         right: 15px;
         padding: 6px 12px;
@@ -837,12 +923,12 @@
   <!-- Brillo solar de fondo -->
   <div class="sunburst"></div>
 
-  <!-- MODAL DE APERTURA (GIFT) -->
+  <!-- OVERLAY DE REGALO INICIAL -->
   <div class="welcome-overlay" id="welcomeOverlay">
     <div class="gift-card">
       <div class="gift-icon-wrap">🎁🌻</div>
       <h1 class="gift-title">Un Regalo Especial Para Mai</h1>
-      <p class="gift-subtitle">✨💛</p>
+      <p class="gift-subtitle">Toca el botón para abrir tu jardín mágico de flores amarillas, música e interacciones únicas pensadas para ti... ✨💛</p>
       <button class="btn-open-gift" id="btnOpenGift">
         <i class="fa-solid fa-envelope-open-text"></i> Abrir Sorpresa
       </button>
@@ -891,24 +977,29 @@
     </div>
   </div>
 
-  <!-- ENCABEZADO Y MENSAJE PRINCIPAL -->
+  <!-- ENCABEZADO PRINCIPAL -->
   <div class="top-message">
     <h1>Para ti, Mai 💛</h1>
-    <p>Haz clic en cada una de las 4 flores para descubrir sus secretos ✨</p>
+    <p>Toca las 4 flores o activa el modo "Sembrador" para plantar tus propios deseos 🌱✨</p>
   </div>
 
-  <!-- BOTÓN DE LLUVIA MÁGICA EXTRA -->
-  <button class="btn-magic-rain" id="btnMagicRain">
-    <i class="fa-solid fa-wand-magic-sparkles"></i> Lluvia Sorpresa
-  </button>
+  <!-- BARRA DE ACCIONES (HERRAMIENTAS MÁGICAS) -->
+  <div class="action-toolbar">
+    <button class="btn-action" id="btnPlantMode">
+      <i class="fa-solid fa-seedling"></i> Plantar Semilla
+    </button>
+    <button class="btn-action" id="btnWaterField">
+      <i class="fa-solid fa-droplet"></i> Regar Campo
+    </button>
+  </div>
 
-  <!-- BADGE DE CARIÑO -->
-  <div class="affection-badge">
-    <i class="fa-solid fa-heart" style="color: #e63946;"></i> Mai eres súper increíble 💛
+  <!-- CONTADOR DE FLORES Y CARIÑO -->
+  <div class="seeds-counter-badge">
+    <i class="fa-solid fa-sun" style="color: #ffaa00;"></i> Cosechadas: <span id="flowerCountText">0</span> flores
   </div>
 
   <!-- MARIPOSAS ANIMADAS SVG -->
-  <div class="butterfly" style="top: 25%; left: 15%; animation-delay: 0s;">
+  <div class="butterfly" style="top: 22%; left: 12%; animation-delay: 0s;">
     <svg viewBox="0 0 50 50">
       <path class="wing" fill="#ffb700" d="M25,25 Q10,5 5,20 Q0,35 25,28 Z" />
       <path class="wing" fill="#ffa000" d="M25,25 Q40,5 45,20 Q50,35 25,28 Z" />
@@ -916,7 +1007,7 @@
     </svg>
   </div>
 
-  <div class="butterfly" style="top: 35%; right: 20%; animation-delay: -5s;">
+  <div class="butterfly" style="top: 32%; right: 18%; animation-delay: -5s;">
     <svg viewBox="0 0 50 50">
       <path class="wing" fill="#ffe066" d="M25,25 Q10,5 5,20 Q0,35 25,28 Z" />
       <path class="wing" fill="#ffb700" d="M25,25 Q40,5 45,20 Q50,35 25,28 Z" />
@@ -924,8 +1015,11 @@
     </svg>
   </div>
 
-  <!-- CAMPO SECUNDARIO TUPIOD DE FLORECITAS -->
+  <!-- CAMPO SECUNDARIO TUPIDO -->
   <div class="bg-field" id="bgField"></div>
+
+  <!-- CONTENEDOR DE FLORES PLANTADAS DINÁMICAMENTE POR MAI -->
+  <div id="dynamicFlowersLayer" style="position: absolute; inset: 0; pointer-events: none; z-index: 15;"></div>
 
   <!-- CAMPO PRINCIPAL (4 FLORES INTERACTIVAS DE MAI) -->
   <div class="field">
@@ -988,7 +1082,7 @@
 
   </div>
 
-  <!-- PASTO DE FONDO -->
+  <!-- PASTO -->
   <div class="grass"></div>
 
   <!-- MODAL DE CARTAS INTERACTIVAS -->
@@ -1004,7 +1098,7 @@
   </div>
 
   <script>
-    // Datos de los mensajes de las 4 flores para Mai
+    // Mensajes poéticos para Mai
     const flowerMessages = {
       1: {
         icon: '🌸',
@@ -1028,7 +1122,20 @@
       }
     };
 
-    // Referencias al DOM
+    const seedWishes = [
+      "¡Un rayito de sol para ti! ☀️",
+      "Que la sonrisa de Mai nunca se apague 😁✨",
+      "¡Salud, dicha y flores amarillas infinitas! 🌻",
+      "Nunca olvides lo increíble que eres 💖",
+      "¡Toda la felicidad del mundo para Mai! 💫",
+      "Eres magia pura ✨✨",
+      "¡Que todos tus sueños florezcan hoy! 🌷"
+    ];
+
+    let plantedFlowersCount = 0;
+    let isPlantingMode = false;
+
+    // Referencias DOM
     const audioPlayer = document.getElementById('audioPlayer');
     const welcomeOverlay = document.getElementById('welcomeOverlay');
     const btnOpenGift = document.getElementById('btnOpenGift');
@@ -1046,7 +1153,10 @@
     const letterTitle = document.getElementById('letterTitle');
     const letterBody = document.getElementById('letterBody');
     const btnCloseModal = document.getElementById('btnCloseModal');
-    const btnMagicRain = document.getElementById('btnMagicRain');
+    const btnPlantMode = document.getElementById('btnPlantMode');
+    const btnWaterField = document.getElementById('btnWaterField');
+    const flowerCountText = document.getElementById('flowerCountText');
+    const dynamicFlowersLayer = document.getElementById('dynamicFlowersLayer');
 
     btnOpenGift.addEventListener('click', () => {
       welcomeOverlay.classList.add('hidden');
@@ -1084,7 +1194,6 @@
       }
     });
 
-    // Barra de progreso de audio
     audioPlayer.addEventListener('timeupdate', () => {
       if (audioPlayer.duration) {
         const pct = (audioPlayer.currentTime / audioPlayer.duration) * 100;
@@ -1112,6 +1221,7 @@
       return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
     }
 
+    // Generar campo tupido de fondo
     const bgField = document.getElementById('bgField');
     const bgColors = ['#ffe159', '#fff8b5', '#ffd119', '#ffffff', '#ffeb8a'];
     const bgFlowersData = [
@@ -1145,18 +1255,18 @@
       bgField.appendChild(stem);
     });
 
+    // Eventos de las 4 flores principales
     document.querySelectorAll('.flower').forEach(flowerEl => {
       flowerEl.addEventListener('click', (e) => {
+        if (isPlantingMode) return;
         const id = flowerEl.getAttribute('data-flower');
         const data = flowerMessages[id];
-        
-        // Explosión de partículas de estrellas en las coordenadas de la flor
+
         const rect = flowerEl.getBoundingClientRect();
         const centerX = rect.left + rect.width / 2;
         const centerY = rect.top + rect.height / 2;
         triggerBurstParticles(centerX, centerY, 50);
 
-        // Mostrar carta
         letterIcon.textContent = data.icon;
         letterTitle.textContent = data.title;
         letterBody.textContent = data.text;
@@ -1164,20 +1274,77 @@
       });
     });
 
-    btnCloseModal.addEventListener('click', () => {
-      modalLetter.classList.remove('active');
+    btnCloseModal.addEventListener('click', () => modalLetter.classList.remove('active'));
+    modalLetter.addEventListener('click', (e) => {
+      if (e.target === modalLetter) modalLetter.classList.remove('active');
     });
 
-    modalLetter.addEventListener('click', (e) => {
-      if (e.target === modalLetter) {
-        modalLetter.classList.remove('active');
+    // MODO "SEMBRADOR DE SUEÑOS"
+    btnPlantMode.addEventListener('click', () => {
+      isPlantingMode = !isPlantingMode;
+      if (isPlantingMode) {
+        btnPlantMode.classList.add('active');
+        btnPlantMode.innerHTML = `<i class="fa-solid fa-check"></i> Sembrando (Toca pantalla)`;
+      } else {
+        btnPlantMode.classList.remove('active');
+        btnPlantMode.innerHTML = `<i class="fa-solid fa-seedling"></i> Plantar Semilla`;
       }
     });
 
-    btnMagicRain.addEventListener('click', () => {
-      triggerBurstParticles(window.innerWidth / 2, 100, 100);
+    window.addEventListener('click', (e) => {
+      if (!isPlantingMode) return;
+      if (e.target.closest('.player-card') || e.target.closest('.action-toolbar') || e.target.closest('.welcome-overlay') || e.target.closest('.modal-letter')) return;
+
+      plantCustomFlower(e.clientX, e.clientY);
     });
 
+    function plantCustomFlower(x, y) {
+      plantedFlowersCount++;
+      flowerCountText.textContent = plantedFlowersCount;
+
+      triggerBurstParticles(x, y, 25);
+
+      const container = document.createElement('div');
+      container.className = 'planted-flower-container';
+      container.style.left = `${x - 30}px`;
+      container.style.top = `${y - 80}px`;
+
+      let petals = '';
+      for (let i = 0; i < 8; i++) {
+        petals += `<div class="planted-petal" style="transform: rotate(${i * 45}deg) translateY(-14px);"></div>`;
+      }
+
+      const randomWish = seedWishes[Math.floor(Math.random() * seedWishes.length)];
+
+      container.innerHTML = `
+        <div class="wish-bubble">${randomWish}</div>
+        <div class="planted-flower-head">
+          ${petals}
+          <div class="planted-center"></div>
+        </div>
+        <div class="planted-stem"></div>
+      `;
+
+      dynamicFlowersLayer.appendChild(container);
+
+      container.querySelector('.planted-flower-head').addEventListener('click', (ev) => {
+        ev.stopPropagation();
+        triggerBurstParticles(x, y, 35);
+      });
+    }
+
+    btnWaterField.addEventListener('click', () => {
+      triggerBurstParticles(window.innerWidth / 2, 100, 120);
+      for (let i = 0; i < 5; i++) {
+        setTimeout(() => {
+          const rx = Math.random() * (window.innerWidth - 100) + 50;
+          const ry = Math.random() * (window.innerHeight / 2) + window.innerHeight / 3;
+          plantCustomFlower(rx, ry);
+        }, i * 200);
+      }
+    });
+
+    // CANVAS ENGINE - Lluvia constante de pétalos y estela de cursor
     const canvas = document.getElementById('petalCanvas');
     const ctx = canvas.getContext('2d');
 
@@ -1226,8 +1393,7 @@
         ctx.rotate(this.angle);
         ctx.globalAlpha = Math.max(0, this.opacity);
         ctx.fillStyle = this.color;
-        
-        // Dibujo en forma de pétalo suave
+
         ctx.beginPath();
         ctx.moveTo(0, 0);
         ctx.quadraticCurveTo(this.size, -this.size / 2, this.size, -this.size);
@@ -1239,8 +1405,7 @@
     }
 
     const particles = [];
-    // Crear pétalos constantes de lluvia suave
-    for (let i = 0; i < 40; i++) {
+    for (let i = 0; i < 45; i++) {
       particles.push(new PetalParticle());
     }
 
@@ -1250,9 +1415,8 @@
       }
     }
 
-    // Estela luminosa al mover el mouse o tocar pantalla
     window.addEventListener('pointermove', (e) => {
-      if (Math.random() < 0.3) {
+      if (Math.random() < 0.25) {
         particles.push(new PetalParticle(e.clientX, e.clientY, true));
       }
     });
@@ -1272,7 +1436,5 @@
 
     animateParticles();
   </script>
-</body>
-</html>
 </body>
 </html>
